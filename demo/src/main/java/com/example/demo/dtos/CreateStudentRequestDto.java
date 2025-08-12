@@ -26,4 +26,6 @@ public class CreateStudentRequestDto {
     @NotBlank(message = "Password is mandatory")
     private String password;
 
+    private Long departmentId; // Assuming departmentId is used to link to a Department entity
+
 }
