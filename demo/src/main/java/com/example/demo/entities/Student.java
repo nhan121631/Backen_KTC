@@ -2,18 +2,14 @@ package com.example.demo.entities;
 
 import java.util.List;
 
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
-
-import jakarta.persistence.Cacheable;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinTable;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
@@ -24,8 +20,8 @@ import lombok.Setter;
 @Setter
 @Entity
 @Table(name = "students")
-@Cacheable
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+// @Cacheable
+// @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

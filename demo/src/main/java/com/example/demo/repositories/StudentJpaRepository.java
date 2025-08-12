@@ -15,7 +15,7 @@ import org.springframework.stereotype.Repository;
 public interface StudentJpaRepository extends JpaRepository<Student, Long> {
 
     @EntityGraph(attributePaths = { "department", "courses" })
-    List<Student> findAll();
+    List<Student> findDistinctBy();
 
     StudentProjection findByEmail(String email);
 

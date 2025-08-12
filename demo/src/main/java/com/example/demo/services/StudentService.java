@@ -2,6 +2,7 @@ package com.example.demo.services;
 
 import java.util.List;
 
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -54,8 +55,10 @@ public class StudentService {
                 .build();
     }
 
+    @Cacheable(value = "students", key = "'all'")
     public List<StudentResponseDto> getAllStudents() {
-        List<StudentResponseDto> students = studentJpaRepository.findAll().stream()
+        System.out.println("Fetching all students from the database...");
+        List<StudentResponseDto> students = studentJpaRepository.findDistinctBy().stream()
                 .map(this::convertDto)
                 .toList();
 
