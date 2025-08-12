@@ -65,6 +65,7 @@ public class StudentService {
         return students;
     }
 
+    @Cacheable(value = "students", key = "#id")
     public StudentResponseDto getStudentById(Long id) {
         return studentJpaRepository.findById(id)
                 .map(this::convertDto)

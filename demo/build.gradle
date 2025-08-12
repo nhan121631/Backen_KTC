@@ -30,12 +30,12 @@ dependencies {
 	//cache redis
 	implementation 'org.springframework.boot:spring-boot-starter-data-redis'
 	//cache in memory
-	implementation 'org.springframework.boot:spring-boot-starter-cache'
+	// implementation 'org.springframework.boot:spring-boot-starter-cache'
 	// Spring Boot validation starter
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 	// Hibernate and Ehcache dependencies
-	implementation 'org.hibernate.orm:hibernate-jcache:6.5.2.Final'
-	implementation 'org.ehcache:ehcache:3.10.8:jakarta'
+	// implementation 'org.hibernate.orm:hibernate-jcache:6.5.2.Final'
+	// implementation 'org.ehcache:ehcache:3.10.8:jakarta'
 	// Spring Boot security starter
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	// JWT dependencies
@@ -50,6 +50,9 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'com.h2database:h2'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+tasks.withType(JavaCompile) {
+    options.compilerArgs += ['-parameters']
 }
 
 tasks.named('test') {
